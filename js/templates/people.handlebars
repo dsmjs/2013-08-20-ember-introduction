@@ -1,6 +1,7 @@
 {{#each person in controller}}
-  {{person.firstName}}<br />
+{{person.firstName}} <button {{action 'removePerson' person}}>Remove</button><br />
 {{/each}}
 
-{{input placeholder="first name" value=firstName}}<br />
-<button {{action 'addPerson'}}>Add</button>
+<br /><br />
+{{input placeholder="first name" value=firstName}}
+<br /><input type="submit" {{action 'addPerson'}} value="submit" />
