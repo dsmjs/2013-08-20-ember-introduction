@@ -10,14 +10,24 @@ App.PeopleRoute = Ember.Route.extend({
     }
 });
 
+App.PeopleController = Ember.ArrayController.extend({
+    addPerson: function() {
+        var firstName = this.get('firstName');
+        App.Person.add({firstName: firstName});
+    }
+});
+
 App.Person = Ember.Object.extend({
     firstName: ''
 });
 
 App.Person.reopenClass({
+    people: [],
+    add: function(hash) {
+        var person = App.Person.create(hash);
+        this.people.pushObject(person);
+    },
     find: function() {
-        var first = App.Person.create({firstName: 'toran'});
-        var last = App.Person.create({firstName: 'matt'});
-        return [first, last];
+        return this.people;
     }
 });
