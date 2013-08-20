@@ -1,0 +1,16 @@
+a gentle introduction to ember.js
+
+To run the javascript tests
+
+    npm install
+    export PATH="./node_modules/.bin:$PATH"
+
+    karma start
+
+
+To run the ember.js web app
+
+    npm install
+
+    ./bin/server
+    http://localhost:3000
