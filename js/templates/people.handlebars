@@ -1,7 +1,12 @@
+{{input class="firstName" type="text" placeholder="first name" value=firstName }}
+{{input class="lastName" type="text" placeholder="last name" value=lastName }}
+<input class="submit" type="submit" value="add" {{action addPerson}} />
+<br />
+<table>
 {{#each person in controller}}
-{{person.firstName}} <button {{action 'removePerson' person}}>Remove</button><br />
+<tr>
+  <td class="name">{{person.fullName}}</td>
+  <td><input type="submit" class="delete" value="delete" {{action removePerson person}} /></td>
+</tr>
 {{/each}}
-
-<br /><br />
-{{input placeholder="first name" value=firstName}}
-<br /><input type="submit" {{action 'addPerson'}} value="submit" />
+</table>

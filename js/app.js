@@ -13,7 +13,8 @@ App.PeopleRoute = Ember.Route.extend({
 App.PeopleController = Ember.ArrayController.extend({
     addPerson: function() {
         var firstName = this.get('firstName');
-        App.Person.add({firstName: firstName});
+        var lastName = this.get('lastName');
+        App.Person.add({firstName: firstName, lastName: lastName});
     },
     removePerson: function(person) {
         App.Person.remove(person);
@@ -21,7 +22,11 @@ App.PeopleController = Ember.ArrayController.extend({
 });
 
 App.Person = Ember.Object.extend({
-    firstName: ''
+    firstName: '',
+    lastName: '',
+    fullName: function() {
+        return this.get('firstName') + ' ' + this.get('lastName');
+    }.property('firstName', 'lastName')
 });
 
 App.Person.reopenClass({
