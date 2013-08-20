@@ -21,11 +21,3 @@ App.Person.reopenClass({
         return [first, last];
     }
 });
-
-App.PeopleController = Ember.ArrayController.extend({
-    content: null
-});
-
-App.PeopleView = Ember.View.extend({
-    defaultTemplate: Ember.Handlebars.compile("<h1>hello</h1>")
-});
